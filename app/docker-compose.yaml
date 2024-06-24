@@ -1,0 +1,27 @@
+version: '3'
+services:
+  neuvector-controller:
+    image: neuvector/controller
+    privileged: true
+    network_mode: host
+    environment:
+      - CONTROLLER_API_PORT=8543
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  neuvector-manager:
+    image: neuvector/manager
+    privileged: true
+    network_mode: host
+    environment:
+      - MANAGER_API_PORT=8543
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  neuvector-enforcer:
+    image: neuvector/enforcer
+    privileged: true
+    network_mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
