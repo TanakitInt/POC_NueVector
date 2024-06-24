@@ -3,8 +3,7 @@ services:
   neuvector-controller:
     image: neuvector/controller
     privileged: true
-    ports:
-      - "8543:8543"
+    network_mode: host
     environment:
       - CONTROLLER_API_PORT=8543
     volumes:
@@ -13,8 +12,7 @@ services:
   neuvector-manager:
     image: neuvector/manager
     privileged: true
-    ports:
-      - "8543:8543"
+    network_mode: host
     environment:
       - MANAGER_API_PORT=8543
     volumes:
@@ -23,7 +21,7 @@ services:
   neuvector-enforcer:
     image: neuvector/enforcer
     privileged: true
-    ports:
-      - "8543:8543"
+    network_mode: host
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+
